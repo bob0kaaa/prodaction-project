@@ -12,5 +12,7 @@
   "О сайте": "About us",
   "Скрыть": "Скрыть",
   "Короткий язык": "EN",
-  "Текст": "Text"
+  "Текст": "Text",
+  "increment": "increment",
+  "decrement": "decrement"
 }
