@@ -10,11 +10,13 @@ export interface componentRenderOptions {
     route?: string;
     initialState?: DeepPartial<StateSchema>;
 }
+
 export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
     const {
         route = '/',
         initialState,
     } = options;
+
     return render(
         <StoreProvider initialState={initialState}>
             <MemoryRouter initialEntries={[route]}>
@@ -23,6 +25,5 @@ export function componentRender(component: ReactNode, options: componentRenderOp
                 </I18nextProvider>
             </MemoryRouter>
         </StoreProvider>,
-
     );
 }

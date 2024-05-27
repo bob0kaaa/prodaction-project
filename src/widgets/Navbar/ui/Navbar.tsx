@@ -11,12 +11,12 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
-    // const [isOpen, setIsOpen] = useState(false);
     const [isAuthModal, setIsAuthModal] = useState(false);
 
     const onToggleModal = useCallback(() => {
         setIsAuthModal((prev) => !prev);
     }, []);
+
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             <Button
@@ -26,9 +26,9 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
             <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-                {t('Текст')}
+                {/* eslint-disable-next-line */}
+                {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.')}
             </Modal>
         </div>
     );

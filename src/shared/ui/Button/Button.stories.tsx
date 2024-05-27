@@ -38,15 +38,15 @@ Outline.args = {
     theme: ButtonTheme.OUTLINE,
 };
 
-export const OutlineL = Template.bind({});
-OutlineL.args = {
+export const OutlineSizeL = Template.bind({});
+OutlineSizeL.args = {
     children: 'Text',
     theme: ButtonTheme.OUTLINE,
     size: ButtonSize.L,
 };
 
-export const OutlineXL = Template.bind({});
-OutlineXL.args = {
+export const OutlineSizeXl = Template.bind({});
+OutlineSizeXl.args = {
     children: 'Text',
     theme: ButtonTheme.OUTLINE,
     size: ButtonSize.XL,
