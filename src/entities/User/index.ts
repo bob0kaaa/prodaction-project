@@ -1,7 +1,11 @@
 export {
+    getUserAuthData,
+} from './model/selectors/getUserAuthData/getUserAuthData';
+
+export {
     userReducer,
     userActions,
-} from './model/slice/UserSlice';
+} from './model/slice/userSlice';
 export {
     UserSchema,
     User,

@@ -1,6 +1,9 @@
 .InputWrapper {
     display: flex;
-    gap: 5px;
+}
+
+.placeholder {
+    margin-right: 5px;
 }
 
 .input {
@@ -25,7 +28,7 @@
     height: 3px;
     width: 9px;
     background: var(--primary-color);
-    bottom: 3px;
+    bottom: 0;
     left: 0;
     position: absolute;
     animation: blink 0.7s forwards infinite;

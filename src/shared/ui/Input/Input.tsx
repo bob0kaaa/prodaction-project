@@ -4,8 +4,9 @@ import React, {
 } from 'react';
 import cls from './Input.module.scss';
 
-type HtmlInputProps = Omit<InputHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange'>
-interface InputProps extends HtmlInputProps{
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+
+interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
@@ -22,7 +23,7 @@ export const Input = memo((props: InputProps) => {
         autofocus,
         ...otherProps
     } = props;
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
 
@@ -32,6 +33,7 @@ export const Input = memo((props: InputProps) => {
             ref.current?.focus();
         }
     }, [autofocus]);
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
