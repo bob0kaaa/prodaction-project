@@ -4,7 +4,7 @@ export {
 
 export {
     getUserInited,
-} from './model/selectors/getUserInited/getUserItited';
+} from './model/selectors/getUserInited/getUserInited';
 
 export {
     userReducer,
