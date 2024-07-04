@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -109,7 +111,6 @@
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://klike.net/uploads/posts/2023-09/1694059396_3-96.jpg"
-
     },
     {
       "id": "2",
@@ -117,12 +118,11 @@
       "password": "123",
       "role": "USER",
       "avatar": "https://pixelbox.ru/wp-content/uploads/2022/08/avatar-boy-telegram-pixelbox.ru-76.jpg"
-
     }
   ],
   "profile": {
-    "first": "jgh",
-    "lastname": "asf",
+    "first": "Damir",
+    "lastname": "Alimov",
     "age": 33,
     "currency": "RUB",
     "country": "Russia",
