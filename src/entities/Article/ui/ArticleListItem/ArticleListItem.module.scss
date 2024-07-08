@@ -1,0 +1,112 @@
+.BIG {
+
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+  }
+
+  .username {
+    margin-left: 10px;
+  }
+
+  .date {
+    margin-left: auto;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .textBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+
+  .img {
+    margin: 10px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .footer {
+    margin-top: 20px;
+  }
+
+  .btn {
+  }
+
+}
+
+.viewWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.SMALL {
+  width: 230px;
+  transition: all 0.2s;
+
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+
+  .date {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+
+    .date {
+      opacity: 1;
+    }
+  }
+
+  .types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .title p {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}
