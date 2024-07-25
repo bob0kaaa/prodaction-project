@@ -4,16 +4,15 @@ import { memo, useCallback } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Card } from 'shared/ui/Card';
-import { useHover } from 'shared/lib/hooks/useHover/useHover';
+import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import cls from './ArticleListItem.module.scss';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
-import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemProps {
@@ -23,27 +22,22 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className,
-        article,
-        view,
-    } = props;
+    const { className, article, view } = props;
     const { t } = useTranslation();
-    const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const navigate = useNavigate();
 
     const onOpenArticle = useCallback(() => {
         navigate(RoutePath.article_details + article.id);
     }, [article.id, navigate]);
 
+    const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
-        <div className={cls.viewWrapper}>
+        <>
             <Text text={String(article.views)} className={cls.views} />
             <Icon Svg={EyeIcon} />
-        </div>
+        </>
     );
 
-    const [isHover, bindHover] = useHover();
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks.find(
             (block) => block.type === ArticleBlockType.TEXT,
@@ -73,11 +67,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             </div>
         );
     }
+
     return (
-        <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card className={cls.card} onClick={onOpenArticle}>
                 <div className={cls.imageWrapper}>
-                    <img src={article.img} alt={article.title} className={cls.img} />
+                    <img alt={article.title} src={article.img} className={cls.img} />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.infoWrapper}>

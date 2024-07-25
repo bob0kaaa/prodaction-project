@@ -1,13 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItem.Skeleton';
+import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string;
-    articles: Article[];
+    articles: Article[]
     isLoading?: boolean;
     view?: ArticleView;
 }
@@ -15,32 +17,34 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
     .map((item, index) => (
-        <ArticleListItemSkeleton view={view} key={index} />
+        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
     ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
+        view = ArticleView.SMALL,
         isLoading,
-        view = ArticleView.BIG,
     } = props;
+    const { t } = useTranslation();
 
-    // if (isLoading) {
-    //     return (
-    //         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-    //             {getSkeletons(view)}
-    //         </div>
-    //     );
-    // }
-
-    const renderArticle = (article:Article) => (
+    const renderArticle = (article: Article) => (
         <ArticleListItem
-            key={article.id}
             article={article}
             view={view}
+            className={cls.card}
+            key={article.id}
         />
     );
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

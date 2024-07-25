@@ -45,14 +45,13 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     onChange={onCommentTextChange}
                 />
                 <Button
-                    onClick={onSendHandler}
                     theme={ButtonTheme.OUTLINE}
+                    onClick={onSendHandler}
                 >
                     {t('Отправить')}
                 </Button>
             </div>
         </DynamicModuleLoader>
-
     );
 });
 

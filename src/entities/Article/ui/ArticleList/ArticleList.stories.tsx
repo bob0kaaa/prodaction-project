@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Article, ArticleView } from '../../model/types/article';
+
 import { ArticleList } from './ArticleList';
+import { Article, ArticleView } from '../../model/types/article';
 
 export default {
     title: 'entities/Article/ArticleList',
@@ -12,24 +13,24 @@ export default {
 } as ComponentMeta<typeof ArticleList>;
 
 const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
 const article = {
     id: '1',
-    title: 'Javascript news',
+    title: 'Javascript news asfasjf asfjkask f',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
     user: {
         id: '1',
-        username: 'Test',
-        avatar: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+        username: 'Ulbi tv',
+        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
     type: [
         'IT',
-        'IT',
-        'IT',
-        'IT',
-        'IT',
+        'SCIENCE',
+        'POLITICS',
+        'ECONOMICS',
     ],
     blocks: [
         {
@@ -65,7 +66,7 @@ const article = {
         {
             id: '3',
             type: 'CODE',
-            code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+            code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
             id: '7',
@@ -92,38 +93,41 @@ const article = {
         },
     ],
 } as Article;
-export const isLoadingSmall = Template.bind({});
-isLoadingSmall.args = {
-    isLoading: true,
+
+export const LoadingBig = Template.bind({});
+LoadingBig.args = {
     articles: [],
+    isLoading: true,
+    view: ArticleView.BIG,
+};
+
+export const LoadingSmall = Template.bind({});
+LoadingSmall.args = {
+    articles: [],
+    isLoading: true,
     view: ArticleView.SMALL,
-};
-
-export const isLoadingBig = Template.bind({});
-isLoadingBig.args = {
-    isLoading: true,
-    articles: [],
-    view: ArticleView.BIG,
-};
-
-export const ListBig = Template.bind({});
-ListBig.args = {
-    isLoading: false,
-    articles: new Array(3).fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
-    view: ArticleView.BIG,
 };
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-    isLoading: false,
-    articles: new Array(9).fill(0)
+    articles: new Array(9)
+        .fill(0)
         .map((item, index) => ({
             ...article,
             id: String(index),
         })),
+    isLoading: false,
     view: ArticleView.SMALL,
+};
+
+export const ListBig = Template.bind({});
+ListBig.args = {
+    articles: new Array(9)
+        .fill(0)
+        .map((item, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    isLoading: false,
+    view: ArticleView.BIG,
 };

@@ -18,30 +18,19 @@ Normal.args = {
     comments: [
         {
             id: '1',
-            text: 'TEst123',
-            user: { id: '1', username: 'TestUser' },
+            text: 'hello world',
+            user: { id: '1', username: 'Vasya' },
         },
         {
             id: '2',
-            text: 'TEst333',
-            user: { id: '2', username: 'TestUser2' },
+            text: 'Comment 2',
+            user: { id: '1', username: 'Petya' },
         },
     ],
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-    comments: [
-        {
-            id: '1',
-            text: 'TEst123',
-            user: { id: '1', username: 'TestUser' },
-        },
-        {
-            id: '2',
-            text: 'TEst333',
-            user: { id: '2', username: 'TestUser2' },
-        },
-    ],
+    comments: [],
     isLoading: true,
 };

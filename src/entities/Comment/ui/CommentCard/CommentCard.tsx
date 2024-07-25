@@ -28,6 +28,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
             </div>
         );
     }
+
     if (!comment) {
         return null;
     }
