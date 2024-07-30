@@ -5,3 +5,11 @@
 .commentTitle {
     margin-top: 20px;
 }
+
+.recommendations {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
