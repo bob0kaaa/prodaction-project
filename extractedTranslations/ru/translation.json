@@ -1,4 +1,8 @@
 {
+  "": "",
+  "ADF APP": "ADF APP",
+  "Create": "Create",
+  "Edit article is ID = ": "Edit article is ID = ",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
       "": ""
@@ -53,6 +57,7 @@
   "Редактировать": "Редактировать",
   "Рекомендуем": "Рекомендуем",
   "Серверная ошибка при сохранении": "Серверная ошибка при сохранении",
+  "Создать статью": "Создать статью",
   "Сортировать ПО": "Сортировать ПО",
   "Сортировать по": "Сортировать по",
   "Сохранить": "Сохранить",
