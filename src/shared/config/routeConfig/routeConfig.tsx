@@ -30,7 +30,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
     [AppRoutes.ARTICLE_CREATE]: '/articles/new',
-    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit', // + :id
+    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
     // последний
     [AppRoutes.NOT_FOUND]: '*',
 };

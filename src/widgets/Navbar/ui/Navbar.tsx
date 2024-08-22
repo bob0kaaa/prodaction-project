@@ -35,8 +35,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('ADF APP')} />
-                <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.article_create} className={cls.createBtn}>
+                <Text
+                    className={cls.appName}
+                    title={t('Ulbi TV App')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createBtn}
+                >
                     {t('Создать статью')}
                 </AppLink>
                 <Button
