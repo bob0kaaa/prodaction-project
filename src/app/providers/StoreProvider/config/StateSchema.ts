@@ -11,7 +11,7 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI';
-import { AddCommentFormSchema } from 'features/addCommentForm';
+import { AddCommentFormSchema } from '../../../../features/addCommentForm';
 
 export interface StateSchema {
     counter: CounterSchema;
