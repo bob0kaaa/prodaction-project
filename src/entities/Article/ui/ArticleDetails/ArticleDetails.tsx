@@ -85,6 +85,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if (isLoading) {
         content = (
+            // eslint-disable-next-line i18next/no-literal-string
             <VStack max justify="center" aling="center" gap="16">
                 <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
                 <Skeleton className={cls.title} width={300} height={32} />
