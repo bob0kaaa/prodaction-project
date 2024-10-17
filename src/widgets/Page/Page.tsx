@@ -10,6 +10,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { VStack } from 'shared/ui/Stack';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -54,8 +55,11 @@ export const Page = memo((props: PageProps) => {
             onScroll={onScroll}
             id={PAGE_ID}
         >
-            {children}
-            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+            <VStack gap="16">
+                {children}
+                {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+            </VStack>
+
         </section>
     );
 });
