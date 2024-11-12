@@ -1,8 +1,8 @@
 import { Fragment, ReactNode, useState } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from '../Stack';
+import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
@@ -19,7 +19,7 @@ interface ListBoxProps {
     value?: string;
     defaultValue?: string;
     onChange: (value: string) => void;
-    readonly?: boolean
+    readonly?: boolean;
     direction?: DropdownDirection;
     label?: string;
 }
@@ -72,7 +72,10 @@ export const ListBox = (props: ListBoxProps) => {
                                 selected,
                             }) => (
                                 <li
-                                    className={classNames(cls.item, { [cls.active]: active, [cls.disabled]: item.disabled })}
+                                    className={classNames(cls.item, {
+                                        [cls.active]: active,
+                                        [cls.disabled]: item.disabled,
+                                    })}
                                 >
                                     {selected && '✔️'}
                                     {item.content}
