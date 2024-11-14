@@ -26,19 +26,19 @@ interface ListBoxProps {
 const mapDirectionClass: Record<DropdownDirection, string> = {
     'bottom left': cls.optionsBottomLeft,
     'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
     'top right': cls.optionsTopRight,
+    'top left': cls.optionsTopLeft,
 };
 
-export const ListBox = (props: ListBoxProps) => {
+export function ListBox(props: ListBoxProps) {
     const {
-        items,
         className,
-        onChange,
+        items,
         value,
         defaultValue,
+        onChange,
         readonly,
-        direction = 'top right',
+        direction = 'bottom right',
         label,
     } = props;
 
@@ -56,7 +56,6 @@ export const ListBox = (props: ListBoxProps) => {
             >
                 <HListBox.Button disabled={readonly} className={cls.trigger}>
                     <Button disabled={readonly}>
-                        {' '}
                         {value ?? defaultValue}
                     </Button>
                 </HListBox.Button>
@@ -68,17 +67,17 @@ export const ListBox = (props: ListBoxProps) => {
                             disabled={item.disabled}
                             as={Fragment}
                         >
-                            {({
-                                active,
-                                selected,
-                            }) => (
+                            {({ active, selected }) => (
                                 <li
-                                    className={classNames(cls.item, {
-                                        [cls.active]: active,
-                                        [cls.disabled]: item.disabled,
-                                    })}
+                                    className={classNames(
+                                        cls.item,
+                                        {
+                                            [cls.active]: active,
+                                            [cls.disabled]: item.disabled,
+                                        },
+                                    )}
                                 >
-                                    {selected && '✔️'}
+                                    {selected && '!!!'}
                                     {item.content}
                                 </li>
                             )}
@@ -87,6 +86,5 @@ export const ListBox = (props: ListBoxProps) => {
                 </HListBox.Options>
             </HListBox>
         </HStack>
-
     );
-};
+}

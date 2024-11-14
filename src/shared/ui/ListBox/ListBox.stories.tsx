@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ListBox } from './ListBox';
 
 export default {
@@ -11,75 +12,55 @@ export default {
     decorators: [
         (Story) => <div style={{ padding: 100 }}><Story /></div>,
     ],
-
 } as ComponentMeta<typeof ListBox>;
 
-// @ts-ignore
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
 
-export const Blocked = Template.bind({});
-Blocked.args = {
-    defaultValue: 'Test',
-    readonly: true,
-    items: [
-        { value: '123', content: 'Первый ' },
-        { value: '1234', content: 'Второй ' },
-    ],
-};
 export const Normal = Template.bind({});
 Normal.args = {
-    defaultValue: 'Test',
-    readonly: false,
-    label: 'Test ',
+    value: '123',
     items: [
-        { value: '123', content: 'Первый ' },
-        { value: '1234', content: 'Второй ' },
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
     ],
 };
-export const TopLeft = Template.bind({});
-TopLeft.args = {
-    defaultValue: 'Test',
-    readonly: false,
+
+export const topLeft = Template.bind({});
+topLeft.args = {
     direction: 'top left',
-    label: 'Test ',
+    value: '123',
     items: [
-        { value: '123', content: 'Первый ' },
-        { value: '1234', content: 'Второй ' },
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
     ],
 };
 
-export const TopRight = Template.bind({});
-TopRight.args = {
-    defaultValue: 'Test',
-    readonly: false,
+export const topRight = Template.bind({});
+topRight.args = {
     direction: 'top right',
-    label: 'Test ',
+    value: '123',
     items: [
-        { value: '123', content: 'Первый ' },
-        { value: '1234', content: 'Второй ' },
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
     ],
 };
 
-export const BottomLeft = Template.bind({});
-BottomLeft.args = {
-    defaultValue: 'Test',
-    readonly: false,
+export const bottomLeft = Template.bind({});
+bottomLeft.args = {
     direction: 'bottom left',
-    label: 'Test ',
+    value: '123',
     items: [
-        { value: '123', content: 'Первый ' },
-        { value: '1234', content: 'Второй ' },
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
     ],
 };
 
-export const BottomRight = Template.bind({});
-BottomRight.args = {
-    defaultValue: 'Test',
-    readonly: false,
+export const bottomRight = Template.bind({});
+bottomRight.args = {
     direction: 'bottom right',
-    label: 'Test ',
+    value: '123',
     items: [
-        { value: '123', content: 'Первый ' },
-        { value: '1234', content: 'Второй ' },
+        { content: '1asfasfasf23', value: '123' },
+        { content: '1asfasfasf21233', value: '1232' },
     ],
 };

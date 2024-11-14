@@ -1,30 +1,26 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import {
-    ArticleSortField,
-    ArticleSortSelector,
-    ArticleTypeTabs,
-    ArticleView,
-    ArticleViewSelector,
+    ArticleSortField, ArticleSortSelector, ArticleTypeTabs, ArticleView, ArticleViewSelector,
 } from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Select } from 'shared/ui/Select/Select';
+import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'entities/Article/model/types/article';
-import { HStack, VStack } from 'shared/ui/Stack';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import cls from './ArticlesPageFilters.module.scss';
 import {
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
+    getArticlesPageOrder, getArticlesPageSearch,
+    getArticlesPageSort, getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
-import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
     className?: string;
@@ -75,8 +71,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     }, [dispatch, fetchData]);
 
     return (
-        <VStack max gap="8" className={classNames('', {}, [className])}>
-            <HStack justify="between" max>
+        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+            <div className={cls.sortWrapper}>
                 <ArticleSortSelector
                     order={order}
                     sort={sort}
@@ -87,18 +83,19 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     view={view}
                     onViewClick={onChangeView}
                 />
-            </HStack>
-            <HStack max className={cls.wrapperSearch}>
+            </div>
+            <Card className={cls.search}>
                 <Input
                     onChange={onChangeSearch}
                     value={search}
                     placeholder={t('Поиск')}
                 />
-            </HStack>
+            </Card>
             <ArticleTypeTabs
                 value={type}
                 onChangeType={onChangeType}
+                className={cls.tabs}
             />
-        </VStack>
+        </div>
     );
 });

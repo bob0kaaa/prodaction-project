@@ -625,6 +625,18 @@
       "userId": "1",
       "text": "orgheghwpeqghjruwitihgjdfs'f;dglfsdh;js",
       "id": "jv0OOcw"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "123",
+      "id": "YLMgpls"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "dsjfbjhkefbsadjbcasjkbdkjsadbjkdsabfkjsadbfkjsdabfkjsdaf",
+      "id": "z0tSjMS"
     }
   ],
   "users": [
@@ -646,9 +658,9 @@
   "profile": [
     {
       "id": "1",
-      "first": "jghwerфывфыв",
-      "lastname": "asfewr",
-      "age": 465,
+      "first": "123",
+      "lastname": "321",
+      "age": 23,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",

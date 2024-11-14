@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { Button } from '../Button/Button';
 import { Dropdown } from './Dropdown';
 
@@ -18,13 +19,13 @@ Normal.args = {
     trigger: <Button>Open</Button>,
     items: [
         {
-            content: '111',
+            content: 'first',
         },
         {
-            content: '222',
+            content: 'second',
         },
         {
-            content: '333',
+            content: 'third',
         },
     ],
 };

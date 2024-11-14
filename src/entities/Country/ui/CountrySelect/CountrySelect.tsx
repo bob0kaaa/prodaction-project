@@ -31,24 +31,13 @@ export const CountrySelect = memo(({
 
     return (
         <ListBox
-            label={t('Укажите страну')}
-            className={className}
-            items={options}
-            readonly={readonly}
+            onChange={onChangeHandler}
             value={value}
             defaultValue={t('Укажите страну')}
-            onChange={onChangeHandler}
+            label={t('Укажите страну')}
+            items={options}
+            readonly={readonly}
+            direction="top right"
         />
     );
-
-    // return (
-    //     <Select
-    //         className={classNames('', {}, [className])}
-    //         label={t('Укажите страну')}
-    //         options={options}
-    //         value={value}
-    //         onChange={onChangeHandler}
-    //         readonly={readonly}
-    //     />
-    // );
 });

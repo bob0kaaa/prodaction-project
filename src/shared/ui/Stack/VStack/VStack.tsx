@@ -1,9 +1,10 @@
 import { Flex, FlexProps } from '../Flex/Flex';
 
 type VStackProps = Omit<FlexProps, 'direction'>
+
 export const VStack = (props: VStackProps) => {
-    const { aling = 'start' } = props;
+    const { align = 'start' } = props;
     return (
-        <Flex direction="column" {...props} aling={aling} />
+        <Flex {...props} direction="column" align={align} />
     );
 };

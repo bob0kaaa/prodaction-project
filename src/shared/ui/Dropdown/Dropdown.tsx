@@ -15,23 +15,20 @@ export interface DropdownItem {
 interface DropdownProps {
     className?: string;
     items: DropdownItem[];
-    trigger: ReactNode;
     direction?: DropdownDirection;
+    trigger: ReactNode;
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
     'bottom left': cls.optionsBottomLeft,
     'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
     'top right': cls.optionsTopRight,
+    'top left': cls.optionsTopLeft,
 };
 
 export function Dropdown(props: DropdownProps) {
     const {
-        className,
-        trigger,
-        items,
-        direction = 'bottom right',
+        className, trigger, items, direction = 'bottom right',
     } = props;
 
     const menuClasses = [mapDirectionClass[direction]];
@@ -43,12 +40,12 @@ export function Dropdown(props: DropdownProps) {
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
                 {items.map((item) => {
-                    const content = ({ active }: { active: boolean }) => (
+                    const content = ({ active }: {active: boolean}) => (
                         <button
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
-                            className={classNames(cls.item, {}, [cls.active])}
+                            className={classNames(cls.item, { [cls.active]: active })}
                         >
                             {item.content}
                         </button>
@@ -61,12 +58,14 @@ export function Dropdown(props: DropdownProps) {
                             </Menu.Item>
                         );
                     }
+
                     return (
                         <Menu.Item as={Fragment} disabled={item.disabled}>
                             {content}
                         </Menu.Item>
                     );
                 })}
+
             </Menu.Items>
         </Menu>
     );
